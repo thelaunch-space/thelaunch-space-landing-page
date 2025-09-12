@@ -18,6 +18,7 @@ const navigationItems: NavigationItem[] = [
   { name: "Recent Wins", href: "#wins" },
   { name: "Pricing", href: "#pricing" },
   { name: "AI Mastery", href: "#mastery" },
+  { name: "Hiring Now", href: "https://hiring.thelaunch.space" },
 ];
 
 export function Header() {
@@ -108,6 +109,10 @@ export function Header() {
                       key={item.name}
                       href={item.href}
                       className="text-white/90 hover:text-white font-medium transition-colors duration-300 hover:scale-105 transform"
+                      {...(item.href.startsWith('http') && {
+                        target: '_blank',
+                        rel: 'noopener noreferrer'
+                      })}
                     >
                       {item.name}
                     </a>
@@ -206,8 +211,12 @@ export function Header() {
                     >
                       <a
                         href={item.href}
-                        onClick={closeMobileMenu}
+                        onClick={item.href.startsWith('http') ? undefined : closeMobileMenu}
                         className="text-2xl font-medium text-white/80 hover:text-white transition-colors duration-300 block py-2"
+                        {...(item.href.startsWith('http') && {
+                          target: '_blank',
+                          rel: 'noopener noreferrer'
+                        })}
                       >
                         {item.name}
                       </a>
