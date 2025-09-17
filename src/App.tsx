@@ -1,6 +1,6 @@
 /*
  * Main App Component - thelaunch.space continuous scroll landing page
- * Features seamless BeamsBackground with modular section components
+ * Features seamless BeamsBackground with modular section components and routing
  */
 import { useState, useEffect, Suspense, lazy } from 'react';
 import { motion, AnimatePresence } from "motion/react";
@@ -10,6 +10,7 @@ import { HeroSection } from "@/components/sections/hero";
 import { SparklesButton } from "@/components/ui/sparkles-button";
 import { ArrowRight } from "lucide-react";
 import { scrollToBooking, createThrottledScrollHandler, getCachedInnerHeight } from "@/lib/utils";
+import { PrivacyPolicy } from "@/pages/PrivacyPolicy";
 
 // Lazy load non-critical sections
 const ProblemSolutionSection = lazy(() => import("@/components/sections/problem-solution").then(m => ({ default: m.ProblemSolutionSection })));
@@ -32,6 +33,7 @@ const SectionFallback = () => (
 
 function App() {
   const [showMobileCTA, setShowMobileCTA] = useState(false);
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
   useEffect(() => {
     const handleScroll = (scrollY: number) => {
@@ -50,6 +52,20 @@ function App() {
     
     return () => window.removeEventListener('scroll', throttledScrollHandler);
   }, []);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Handle routing
+  if (currentPath === '/privacy-policy') {
+    return <PrivacyPolicy />;
+  }
 
   return (
     <div className="relative min-h-screen bg-neutral-950">

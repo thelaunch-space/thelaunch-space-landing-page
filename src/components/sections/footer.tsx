@@ -4,6 +4,7 @@
  */
 import { forwardRef } from 'react';
 import { motion } from "motion/react";
+import { navigateTo } from "@/lib/utils";
 
 export const Footer = forwardRef<HTMLElement>((_, ref) => {
   return (
@@ -68,6 +69,22 @@ export const Footer = forwardRef<HTMLElement>((_, ref) => {
                     {" "}for more details.
                   </p>
                 </div>
+              </motion.div>
+
+              {/* Privacy Policy Link */}
+              <motion.div
+                className="mt-6 pt-4 border-t border-white/10"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                <button
+                  onClick={() => navigateTo('/privacy-policy')}
+                  className="text-xs text-white/50 hover:text-white/70 transition-colors duration-300 underline underline-offset-2"
+                >
+                  Privacy Policy
+                </button>
               </motion.div>
               
             </div>
