@@ -17,7 +17,7 @@ const learningOutcomes = [
 
 export const AIMasterySection = forwardRef<HTMLElement>((_, ref) => {
   return (
-    <section className="relative z-10 min-h-screen flex items-center py-8 lg:py-16" ref={ref}>
+    <section className="relative z-10 min-h-screen flex items-center pt-24 pb-8 lg:pt-32 lg:pb-16 scroll-mt-24" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div id="mastery"></div>
