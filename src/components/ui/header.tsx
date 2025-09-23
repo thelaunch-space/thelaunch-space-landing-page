@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { SparklesButton } from "@/components/ui/sparkles-button";
-import { scrollToBooking, createThrottledScrollHandler, getCachedInnerHeight } from "@/lib/utils";
+import { scrollToBooking, createThrottledScrollHandler, getCachedInnerHeight, scrollToSection } from "@/lib/utils";
 
 interface NavigationItem {
   name: string;
@@ -18,7 +18,6 @@ const navigationItems: NavigationItem[] = [
   { name: "Recent Wins", href: "#wins" },
   { name: "Pricing", href: "#pricing" },
   { name: "AI Mastery", href: "#mastery" },
-  { name: "Hiring Now", href: "https://hiring.thelaunch.space" },
 ];
 
 export function Header() {
@@ -81,15 +80,21 @@ export function Header() {
                 {/* Logo Section - Always on the left */}
                 <div className="flex items-center flex-shrink-0">
                   {/* Desktop/Laptop Logo */}
-                  <div className="hidden lg:flex items-center space-x-3">
+                  <button 
+                    onClick={() => scrollToSection('hero')}
+                    className="hidden lg:flex items-center space-x-3 hover:opacity-80 transition-opacity duration-300 cursor-pointer"
+                  >
                     <img src="/logo.png" alt="thelaunch.space" className="w-8 h-8" />
                     <span className="text-xl font-bold text-white">thelaunch.space</span>
-                  </div>
+                  </button>
                   
                   {/* Tablet/Mobile Logo (Icon only) */}
-                  <div className="lg:hidden">
+                  <button 
+                    onClick={() => scrollToSection('hero')}
+                    className="lg:hidden hover:opacity-80 transition-opacity duration-300 cursor-pointer"
+                  >
                     <img src="/logo.png" alt="thelaunch.space" className="w-10 h-10" />
-                  </div>
+                  </button>
                 </div>
 
                 {/* Desktop Navigation - Right side initially, slides left when CTA appears */}
@@ -109,6 +114,13 @@ export function Header() {
                       key={item.name}
                       href={item.href}
                       className="text-white/90 hover:text-white font-medium transition-colors duration-300 hover:scale-105 transform"
+                      onClick={(e) => {
+                        if (!item.href.startsWith('http')) {
+                          e.preventDefault();
+                          const elementId = item.href.replace('#', '');
+                          scrollToSection(elementId);
+                        }
+                      }}
                       {...(item.href.startsWith('http') && {
                         target: '_blank',
                         rel: 'noopener noreferrer'
@@ -186,10 +198,16 @@ export function Header() {
             >
               {/* Menu Header */}
               <div className="flex items-center justify-between p-6 border-b border-white/10">
-                <div className="flex items-center space-x-3">
+                <button 
+                  onClick={() => {
+                    scrollToSection('hero');
+                    closeMobileMenu();
+                  }}
+                  className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-300 cursor-pointer"
+                >
                   <img src="/logo.png" alt="thelaunch.space" className="w-8 h-8" />
                   <span className="text-lg font-bold text-white">thelaunch.space</span>
-                </div>
+                </button>
                 <button
                   onClick={closeMobileMenu}
                   className="p-2 bg-transparent text-white/80 hover:text-white transition-colors duration-300 shadow-none border-none focus:bg-transparent hover:bg-transparent"
@@ -211,7 +229,15 @@ export function Header() {
                     >
                       <a
                         href={item.href}
-                        onClick={item.href.startsWith('http') ? undefined : closeMobileMenu}
+                        onClick={(e) => {
+                          if (item.href.startsWith('http')) {
+                            return;
+                          }
+                          e.preventDefault();
+                          closeMobileMenu();
+                          const elementId = item.href.replace('#', '');
+                          scrollToSection(elementId);
+                        }}
                         className="text-2xl font-medium text-white/80 hover:text-white transition-colors duration-300 block py-2"
                         {...(item.href.startsWith('http') && {
                           target: '_blank',
