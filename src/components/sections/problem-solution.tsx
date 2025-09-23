@@ -23,7 +23,7 @@ export function ProblemSolutionSection() {
   ];
 
   return (
-    <section className="relative z-10 py-20 lg:py-32">
+    <section className="relative z-10 pt-24 pb-20 lg:pt-32 lg:pb-32 scroll-mt-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div id="solution"></div>

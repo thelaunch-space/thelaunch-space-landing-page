@@ -5,10 +5,11 @@
 import { forwardRef } from 'react';
 import { motion } from "motion/react";
 import { PricingCard } from "@/components/ui/dark-gradient-pricing";
+import { CurrencyConverter } from "@/components/ui/currency-converter";
 
 export const PricingSection = forwardRef<HTMLElement>((_, ref) => {
   return (
-    <section className="relative z-10 py-8 lg:py-16 min-h-screen flex items-center" ref={ref}>
+    <section className="relative z-10 pt-24 pb-8 lg:pt-32 lg:pb-16 min-h-screen flex items-center scroll-mt-24" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div id="pricing"></div>
@@ -30,6 +31,11 @@ export const PricingSection = forwardRef<HTMLElement>((_, ref) => {
             <p className="text-base lg:text-lg text-white/70 max-w-3xl mx-auto leading-relaxed">
              Fast, focused delivery that gets you to market while your competitors are still planning.
             </p>
+            
+            {/* Currency Converter Link */}
+            <div className="mt-4 flex justify-center">
+              <CurrencyConverter />
+            </div>
           </motion.div>
 
           {/* Pricing Cards Grid */}

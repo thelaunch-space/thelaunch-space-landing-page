@@ -48,13 +48,32 @@ if (typeof window !== 'undefined') {
   });
 }
 
+function getHeaderHeightPx(): number {
+  const header = document.querySelector('header') as HTMLElement | null;
+  return header?.offsetHeight ?? 0;
+}
+
+function scrollToElementWithOffset(target: HTMLElement, extraOffset = 0) {
+  const headerHeight = getHeaderHeightPx();
+  const targetY = target.getBoundingClientRect().top + window.scrollY - headerHeight - extraOffset;
+  window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+}
+
 export function scrollToBooking() {
-  const bookingSection = document.querySelector('[data-section="booking"]');
+  const bookingSection = document.querySelector('[data-section="booking"]') as HTMLElement | null;
   if (bookingSection) {
-    bookingSection.scrollIntoView({ 
-      behavior: 'smooth',
-      block: 'start'
-    });
+    scrollToElementWithOffset(bookingSection, 0);
+  }
+}
+
+// Simple scroll to element with header offset
+export function scrollToSection(elementId: string) {
+  // Try by id first
+  let element = document.getElementById(elementId) as HTMLElement | null;
+  // Fallback to querySelector if needed
+  if (!element) element = document.querySelector(`#${elementId}`) as HTMLElement | null;
+  if (element) {
+    scrollToElementWithOffset(element, 0);
   }
 }
 
