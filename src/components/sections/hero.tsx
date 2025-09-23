@@ -11,7 +11,7 @@ import { scrollToBooking } from "@/lib/utils";
 
 export function HeroSection() {
   return (
-    <section className="relative z-10 min-h-screen flex items-center justify-center pt-16 lg:pt-20">
+    <section id="hero" className="relative z-10 min-h-screen flex items-center justify-center pt-16 lg:pt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-center text-center max-w-5xl mx-auto">
           
