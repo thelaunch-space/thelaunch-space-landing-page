@@ -56,7 +56,7 @@ export const PrivacyPolicy = () => {
                 Privacy Policy
               </h1>
               <p className="text-white/60 text-sm">
-                Last updated: 17 September 2025
+                Last updated: 17 October 2025
               </p>
             </motion.div>
 
@@ -157,11 +157,111 @@ export const PrivacyPolicy = () => {
 
                 <hr className="border-white/10 my-8" />
 
-                {/* Section 3 */}
+                {/* Section 2A */}
                 <motion.section
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 1.2 }}
+                  className="mb-8"
+                >
+                  <h2 className="text-xl sm:text-2xl font-semibold text-white mb-4">2A. Product-Specific Data Collection</h2>
+                  <p className="text-white/90 leading-relaxed mb-6">
+                    thelaunch.space develops and operates digital products including Chrome extensions, web applications, and mobile apps. Each product may collect specific data necessary for functionality. Below are details for our active products:
+                  </p>
+
+                  {/* Chrome Extension Subsection */}
+                  <div className="ml-4 space-y-6">
+                    <h3 className="text-lg sm:text-xl font-semibold text-white mb-4">Bolt.new First Prompt Generator (Chrome Extension)</h3>
+                    <p className="text-white/90 leading-relaxed mb-4">
+                      This Chrome extension helps users create optimized prompts for bolt.new through a guided questionnaire. When you use this extension, we collect and process:
+                    </p>
+
+                    {/* Data Collected */}
+                    <div className="mb-6">
+                      <h4 className="text-base font-semibold text-white mb-3">Data Collected:</h4>
+                      <ul className="space-y-2">
+                        <li className="flex items-start">
+                          <span className="text-blue-300 mr-3 mt-1">•</span>
+                          <span className="text-white/90">Authentication credentials (email and password) for account access</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-blue-300 mr-3 mt-1">•</span>
+                          <span className="text-white/90">Questionnaire responses including project type, target audience, pain points, solution descriptions, and design preferences</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-blue-300 mr-3 mt-1">•</span>
+                          <span className="text-white/90">AI-generated prompts created based on your responses</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-blue-300 mr-3 mt-1">•</span>
+                          <span className="text-white/90">Usage analytics (whether prompts were edited or copied)</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* How This Data Is Used */}
+                    <div className="mb-6">
+                      <h4 className="text-base font-semibold text-white mb-3">How This Data Is Used:</h4>
+                      <ul className="space-y-2">
+                        <li className="flex items-start">
+                          <span className="text-blue-300 mr-3 mt-1">•</span>
+                          <span className="text-white/90">Stored securely via Supabase (our backend infrastructure provider)</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-blue-300 mr-3 mt-1">•</span>
+                          <span className="text-white/90">Processed through OpenRouter API using Anthropic's Claude AI models to generate customized prompts</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-blue-300 mr-3 mt-1">•</span>
+                          <span className="text-white/90">Used to improve service quality and user experience</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-blue-300 mr-3 mt-1">•</span>
+                          <span className="text-white/90">Not sold, shared, or used for advertising purposes</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Third-Party Services */}
+                    <div className="mb-6">
+                      <h4 className="text-base font-semibold text-white mb-3">Third-Party Services:</h4>
+                      <ul className="space-y-2">
+                        <li className="flex items-start">
+                          <span className="text-blue-300 mr-3 mt-1">•</span>
+                          <span className="text-white/90">Supabase: Secure data storage and authentication</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-blue-300 mr-3 mt-1">•</span>
+                          <span className="text-white/90">OpenRouter/Anthropic: AI prompt generation via API</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Limited Use Compliance */}
+                    <div className="mb-6">
+                      <h4 className="text-base font-semibold text-white mb-3">Limited Use Compliance:</h4>
+                      <p className="text-white/90 leading-relaxed">
+                        Our use of data collected through this extension adheres to the Chrome Web Store User Data Policy, including Limited Use requirements. Data is used exclusively to provide prompt generation functionality and is not transferred to third parties except as required for core functionality.
+                      </p>
+                    </div>
+
+                    {/* Data Retention */}
+                    <div>
+                      <h4 className="text-base font-semibold text-white mb-3">Data Retention:</h4>
+                      <p className="text-white/90 leading-relaxed">
+                        Your data is retained as long as your account remains active. You may request deletion of your data at any time by contacting us at <a href="mailto:krishna@thelaunch.space" className="text-blue-300 hover:text-blue-200 transition-colors duration-300 underline underline-offset-2">krishna@thelaunch.space</a>.
+                      </p>
+                    </div>
+                  </div>
+                </motion.section>
+
+                <hr className="border-white/10 my-8" />
+
+                {/* Section 3 */}
+                <motion.section
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.4 }}
                   className="mb-8"
                 >
                   <h2 className="text-xl sm:text-2xl font-semibold text-white mb-4">3. Information Sharing & Disclosure</h2>
@@ -196,7 +296,7 @@ export const PrivacyPolicy = () => {
                 <motion.section
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.4 }}
+                  transition={{ duration: 0.6, delay: 1.6 }}
                   className="mb-8"
                 >
                   <h2 className="text-xl sm:text-2xl font-semibold text-white mb-4">4. Data Security</h2>
@@ -211,7 +311,7 @@ export const PrivacyPolicy = () => {
                 <motion.section
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.6 }}
+                  transition={{ duration: 0.6, delay: 1.8 }}
                   className="mb-8"
                 >
                   <h2 className="text-xl sm:text-2xl font-semibold text-white mb-4">5. Your Rights</h2>
@@ -243,7 +343,7 @@ export const PrivacyPolicy = () => {
                 <motion.section
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.8 }}
+                  transition={{ duration: 0.6, delay: 2.0 }}
                   className="mb-8"
                 >
                   <h2 className="text-xl sm:text-2xl font-semibold text-white mb-4">6. Third-Party Links</h2>
@@ -258,7 +358,7 @@ export const PrivacyPolicy = () => {
                 <motion.section
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 2.0 }}
+                  transition={{ duration: 0.6, delay: 2.2 }}
                   className="mb-8"
                 >
                   <h2 className="text-xl sm:text-2xl font-semibold text-white mb-4">7. Updates to This Policy</h2>
@@ -273,7 +373,7 @@ export const PrivacyPolicy = () => {
                 <motion.section
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 2.2 }}
+                  transition={{ duration: 0.6, delay: 2.4 }}
                   className="mb-8"
                 >
                   <h2 className="text-xl sm:text-2xl font-semibold text-white mb-4">8. Contact Us</h2>
