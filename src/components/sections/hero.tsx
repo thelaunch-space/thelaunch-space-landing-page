@@ -117,17 +117,6 @@ export function HeroSection() {
               </div>
             </div>
           </motion.div>
-          
-          {/* Secondary Text */}
-          <motion.p 
-            className="text-sm sm:text-base lg:text-lg text-white/50 italic"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.8 }}
-            style={{ willChange: "opacity" }}
-          >
-            Next available slot: September 2025
-          </motion.p>
 
         </div>
       </div>
